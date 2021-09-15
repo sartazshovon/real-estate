@@ -1,0 +1,41 @@
+<odoo>
+
+
+        <record id="view_user_form_real_estate" model="ir.ui.view">
+            <field name="name">res.users.form.real.estate</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form" />
+            <field name="arch" type="xml">  
+                <notebook position="inside">
+                    <page string="LOG">
+                        <group>
+                            <field name="buyer_id"/>
+                            <field name="description"/>
+
+                        </group>
+
+                    </page>
+
+                </notebook>
+
+                <xpath expr="//notebook/page[1]" position="before">  
+                      <page string="Preferences">
+                            <group>
+                                <field name="buyer_id"/>
+                                <field name="description"/>
+
+                            </group>
+
+                        </page> 
+                </xpath> 
+
+            </field>
+
+        </record>
+
+
+
+
+
+
+</odoo>
