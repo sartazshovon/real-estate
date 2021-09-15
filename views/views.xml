@@ -1,0 +1,222 @@
+<odoo>
+   
+
+    <!-- <record id="view_properties_kanban"model="ir.ui.view">
+        <field name=>real.estate.kanban</field>
+        <field name="model">real.estate</field>
+        <field name="arch" type="xml">
+        <field name="title"/>
+        <field name="bedrooms"/>
+        <field name="garden"/>
+        <field name="expected_price"/>
+
+        <templates>
+           <t t-name="kanban-box">
+                <div class="oe_kanban_global_click o_real_estate_kanban">
+                <div class="oe_kanban_details">
+                                <h2 class="o_kanban_record_title"><field name="name"/></h2>
+                                <ul>
+                                </ul>
+                </div>
+                </div>
+             </t>
+        </templates>
+        </kanban>
+        </field>
+    </record> -->
+    <record id="view_properties_kanban" model="ir.ui.view">
+        <field name="name">real.estate.kanban</field>
+        <field name="model">real.estate</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="status">
+                <field name="title"/>
+                <!-- <field name="image"/> -->
+                <!-- <field name="living_area"/> -->
+                <field name="bedrooms"/>
+                <field name="expected_price"/>
+                <field name="status"/>
+                
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click o_real_estate_kanban">
+                            <div class="oe_kanban_details">
+                                <h2 class="o_kanban_record_title"><field name="title"/></h2>
+                                <ul>
+                                    <!-- <field name="image" widget="image" class="oe_avatar"/> -->
+                                    <!-- <li>Living area : <field name="living_area"/> Sqm</li> -->
+                                    <li>Bedrooms : <field name="bedrooms"/></li>
+                                    <!-- <li>Price : <field name="expected_price"/></li> -->
+                                    <li>Status : <field name="status"/></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+
+    <record id="properties_form" model="ir.ui.view">
+        <field name="name">real.estate.form</field>
+        <field name="model">real.estate</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="title"/>
+                            <field name="description"/>
+                        </group>
+                        <group>
+                            <field name="postcode"/>
+                            <field name="expected_price"/>
+                            <field name="bedrooms"/>
+                            <field name="facades"/>
+                            <field name="garden"/>
+                            <field name="garden_orientation"/>
+                            <field name="active"/>
+                            <!-- <field name="client_id"/> -->
+                            <field name="property"/>
+                            <!-- <field name="buyer_id"/> -->
+                            
+                            
+                        </group>
+                        <group>
+                            <field name="available_from"/>
+                            <field name="selling_price"/>
+                            <field name="living_area"/>
+                            <field name="garage_area"/>
+                            <field name="area"/>
+                            <field name="expected_price"/>
+                            <field name="garage"/>
+                            <field name="status"/>
+                        </group>
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="properties_tree" model="ir.ui.view">
+        <field name="name">real.estate.tree</field>
+        <field name="model">real.estate</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="title"/>
+                <field name="description"/>
+                <field name="postcode"/>
+                <field name="expected_price"/>
+                <field name="bedrooms"/>
+                <field name="facades"/>
+                <!-- <field name="client_id"/> -->
+                <field name="property"/>
+            
+                <!-- <field name="buyer_id"/> -->
+                <field name="garden"/>
+                <field name="garden_orientation"/>
+                <field name="active"/>
+                <field name="available_from"/>
+                <field name="selling_price"/>
+                <field name="living_area"/>
+
+                <field name="garage"/>
+                <field name="garage_area"/>
+                <field name="area"/>
+                <field name="status"/>
+                
+            </tree>
+        </field>
+    </record>
+
+    <record id="properties_action" model="ir.actions.act_window">
+        <field name="name">Properties</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">real.estate</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create the property you want !
+            </p>
+        </field>
+    </record>
+    
+    <!-- <record id="tproperties_form" model="ir.ui.view">
+        <field name="name">tax.file.form</field>
+        <field name="model">tax.file</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="title"/>
+                            <field name="description"/>
+                        </group>
+                        <group>
+                            <field name="taxpayer_name"/>
+                            <field name="taxpayer_email"/>
+                            <field name="taxpayer_id"/>
+                            <field name="tax"/>
+                            <field name="amount"/>
+                            <field name="image" widget="image"/>
+                            
+                        </group>
+                    </group>    
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id='tproperties_tree' model='ir.ui.view' >
+         <field name="name"> tax.file.tree </field>
+         <field name='model'>tax.file</field>
+         <field name='arch' type='xml'>
+               <tree>
+                    <field name="taxpayer_name"/>
+                    <field name="taxpayer_email"/>
+                    <field name="taxpayer_id"/>
+                    <field name="tax"/>
+                    <field name="amount"/>
+                    <field name="image" widget="image"/>
+               </tree>
+          </field>
+    </record>  -->
+    <!-- <record id="tproperties_action" model="ir.actions.act_window">
+        <field name="name">tProperties</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">tax.file</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create the first property you want 
+            </p>
+        </field>
+    </record>
+      -->
+    <menuitem id="estate_root"
+            name="Real Estate"
+            web_icon="sale_management,static/description/icon.png"
+            sequence="10"/>
+    <!-- <menuitem id="tax_root"
+            name="taxation"
+            web_icon="sale_management,static/description/icon.png"
+            sequence="10"/>  -->
+    <menuitem id="real_estate_root"
+        name="Advertisements"
+        parent="estate_root"
+        sequence="10"/>
+
+    <menuitem id="real_estate"
+        name="Properties"
+        parent="real_estate_root"
+        action="properties_action"
+        sequence="10"/>
+    <!-- <menuitem id="taxpayer"
+        name="taxpayer"
+        parent="estate_root"
+        action="tproperties_action"
+        sequence="10"/>     -->
+
+   
+</odoo>
